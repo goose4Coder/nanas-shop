@@ -7,13 +7,13 @@ public abstract class Quest
 {
     // Start is called before the first frame update
     protected string description;
-    protected string potion;
+    protected string potionName;
     protected uint reward;
 
-    public Quest(string descriptionToSet)
+    public Quest(string descriptionToSet, string potionToSet)
     {
         this.description = descriptionToSet;
-        potion = "";
+        potionName = potionToSet;
         reward = 0;
     }
     virtual public QuestGiver GetGiver()
@@ -23,6 +23,6 @@ public abstract class Quest
 
     virtual public string GetDescription()
     {
-        return description.Replace("[Potion]", potion);
+        return description.Replace("[Potion]", potionName);
     }
 }

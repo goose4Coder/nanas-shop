@@ -19,7 +19,8 @@ public class QuestBankControl : MonoBehaviour, IInitializable
             switch (targetNode.Attributes.GetNamedItem("questType").Value)
             {
                 case "FixedPersonSimpleQuest":
-                    quests.Add(new FixedPersonQuest(targetNode.Attributes.GetNamedItem("description").Value, new QuestGiver(targetNode.Attributes.GetNamedItem("GiverName").Value)));
+                    quests.Add(new FixedPersonQuest(targetNode.Attributes.GetNamedItem("Description").Value, targetNode.Attributes.GetNamedItem("PotionName").Value, new QuestGiver(targetNode.Attributes.GetNamedItem("GiverName").Value)));
+
                     break;
                 default:
                     break;
@@ -27,6 +28,10 @@ public class QuestBankControl : MonoBehaviour, IInitializable
         }
     }
 
+    public List<Quest> GetQuests()
+    {
+        return quests;
+    }
     // Update is called once per frame
     void Update()
     {

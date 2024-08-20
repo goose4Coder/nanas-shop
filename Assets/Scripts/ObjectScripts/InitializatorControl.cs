@@ -22,6 +22,8 @@ public class InitializatorControl : MonoBehaviour
     {
         
         toInitialize.Add(GameObject.Find("ActionBank").GetComponent<ActionBankControl>());
+        toInitialize.Add(GameObject.Find("QuestUI").GetComponent<QuestUIControl>());
+        toInitialize.Add(GameObject.Find("QuestBank").GetComponent<QuestBankControl>());
 
     }
 
@@ -65,6 +67,7 @@ public class InitializatorControl : MonoBehaviour
         PrepareDefaultObjects();
         //PrepareAdditionalObjects();
         InitializeObjects();
-
+        Quest q = GameObject.Find("QuestBank").GetComponent<QuestBankControl>().GetQuests()[0];
+        GameObject.Find("QuestUI").GetComponent<QuestUIControl>().RenderQuest(q);
     }
 }
